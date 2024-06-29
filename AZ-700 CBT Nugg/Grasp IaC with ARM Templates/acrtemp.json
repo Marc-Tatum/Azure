@@ -1,15 +1,41 @@
 {
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
-    "parameters": {},
+    "parameters": {
+        "registryName": {
+            "type": "string",
+            "metadata": {
+                "description": "The name of the container registry."
+            }
+        },
+        "location": {
+            "type": "string",
+            "defaultValue": "[resourceGroup().location]",
+            "metadata": {
+                "description": "The location in which to create the container"
+            }
+        },
+        "selectedSku": {
+            "type": "string",
+            "defaultValue": "Standard",
+            "allowedValues": [
+                "Basic",
+                "Standard",
+                "Premium"
+            ],
+            "metadata": {
+                "description": "The SKU of the container registry."
+            }
+        }
+    },
     "functions": [],
     "variables": {},
     "resources": [
         {
-            "name": "testacr",
+            "name": "[parameters('registryName') ]",
             "type": "Microsoft.ContainerRegistry/registries",
             "apiVersion": "2023-07-01",
-            "location": "[resourceGroup().location]",
+            "location": "[parameters('location' )]",
             "sku": {
                 "name": "Standard"
             },
