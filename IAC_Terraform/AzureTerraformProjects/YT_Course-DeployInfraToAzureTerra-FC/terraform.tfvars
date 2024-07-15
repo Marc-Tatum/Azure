@@ -1,0 +1,5 @@
+location                = "eastus"
+resource_group_name     = "rg-terraform-demo-var"
+azurerm_virtual_network = "vnet-terraform-demo-var"
+subnet1                 = "terrasubnet"
+address_prefix          = "10.20.23.0/28"
