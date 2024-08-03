@@ -1,8 +1,0 @@
-#YT LMTY
-
-This walks through the first step in getting an azure hub and spoke network deploy in azure using terraform.  The hub and spoke network design is a design that's really recommended by azure to help consolidate and make management of resources a lot easier.
-
-AZURE-HUB-AND-SPOKE
-
-Step 1: Install Terraform and set path if using Windows
-Step 2: Create base Terraform files
