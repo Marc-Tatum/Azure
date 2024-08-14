@@ -46,7 +46,7 @@ resource "azurerm_virtual_network_peering" "hub-to-test" {
   allow_forwarded_traffic      = true
 }
 
-# Below is an example using an virtual network gateway in the HUB for spoke to spoke connecitivty
+
 resource "azurerm_route_table" "rtbdev" {
   name                = "rtbdev"
   location            = azurerm_resource_group.August.location
@@ -62,44 +62,6 @@ resource "azurerm_route" "routetotest" {
   route_table_name       = azurerm_route_table.rtbdev.name
   address_prefix         = "10.200.0.0/16"
   next_hop_type          = "VirtualAppliance"
-  next_hop_in_ip_address = "10.0.0.4"
-}
-
-
-resource "azurerm_route_table" "rtbtest" {
-  name                = "rtbtest"
-  location            = azurerm_resource_group.August.location
-  resource_group_name = azurerm_resource_group.August.name
-  tags = {
-    environment = "Prod"
-  }
-}
-resource "azurerm_route" "routetodev" {
-  name                   = "routetodev"
-  resource_group_name    = azurerm_resource_group.August.name
-  route_table_name       = azurerm_route_table.rtbtest.name
-  address_prefix         = "10.100.0.0/16"
-  next_hop_type          = "VirtualAppliance"
-  next_hop_in_ip_address = "10.0.0.4"
-}
-
-
-# Below is an example using an Azure Firewall in the HUB for spoke to spoke connecitivty
-/* resource "azurerm_route_table" "rtbdev" {
-  name                = "rtbdev"
-  location            = azurerm_resource_group.August.location
-  resource_group_name = azurerm_resource_group.August.name
-  tags = {
-    environment = "Prod"
-  }
-}
-
-resource "azurerm_route" "routetotest" {
-  name                   = "routetotest"
-  resource_group_name    = azurerm_resource_group.August.name
-  route_table_name       = azurerm_route_table.rtbdev.name
-  address_prefix         = "10.200.0.0/16"
-  next_hop_type          = "VirtualAppliance"
   next_hop_in_ip_address = "10.0.2.4"
 }
 
@@ -119,4 +81,4 @@ resource "azurerm_route" "routetodev" {
   address_prefix         = "10.100.0.0/16"
   next_hop_type          = "VirtualAppliance"
   next_hop_in_ip_address = "10.0.2.4"
-} */
+}

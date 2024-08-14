@@ -50,7 +50,7 @@ resource "azurerm_windows_virtual_machine" "devvm" {
 }
 
 
-resource "azurerm_route" "routetoinet" {
+/* resource "azurerm_route" "routetoinet" {
   name                   = "routetoinet"
   resource_group_name    = azurerm_resource_group.August.name
   route_table_name       = azurerm_route_table.rtbdev.name
@@ -58,3 +58,4 @@ resource "azurerm_route" "routetoinet" {
   next_hop_type          = "VirtualAppliance"
   next_hop_in_ip_address = "10.0.2.4"
 }
+ */
