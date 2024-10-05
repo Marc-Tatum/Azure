@@ -3,8 +3,8 @@ provider "azurerm" {
 }
 
 resource "azurerm_resource_group" "example" {
-  name     = "githubactionazure"
-  location = "South Central US"
+  name     = "githubactionsazure"
+  location = "East US"
 }
 
 resource "azurerm_windows_virtual_machine" "example" {
