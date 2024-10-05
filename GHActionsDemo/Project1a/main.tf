@@ -25,5 +25,3 @@ source_image_reference {
     version   = "latest"
   }
 }
-
-#adding a commit
