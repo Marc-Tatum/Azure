@@ -25,6 +25,8 @@ jobs:
 
       - name: Terraform Init
         run: terraform init
+        working-directory: ./GHActionsDemo/Project1a
 
       - name: Terraform Apply
         run: terraform apply -auto-approve
+        working-directory: ./GHActionsDemo/Project1a
